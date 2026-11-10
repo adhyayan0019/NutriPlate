@@ -17,7 +17,8 @@
 
 ### 1. Dataset License (NutriPlate-Food35 / NP-Food35)
 The curated dataset compilation located in `datasets/new_khana_internet/` (7,351 purified images across 35 categories) is licensed under:
-* **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**
+* **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**
+* **ShareAlike (SA) Requirement:** Any remix, transformation, or derivative dataset/model must be distributed under the exact same license.
 * **Commercial Rights Reserved Addendum:** Commercial monetization, closed-source enterprise retraining, or redistribution within commercial applications requires a formal written commercial license from the joint authors.
 * Citation guidelines are formally recorded in `datasets/new_khana_internet/CITATION.cff`.
 

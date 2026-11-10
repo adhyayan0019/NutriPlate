@@ -11,7 +11,7 @@
   "total_records": 7351,
   "number_of_classes": 35,
   "purification_status": "100% Raw Food Imagery - Verified Zero-Watermark Dataset",
-  "equal_contribution_statement": "Adhyayan Goyal, Aditya Chavan, Likhit Chaudhary, and Vaishnavi Bighot contributed equally to this work.",
+  "authorship_statement": "Adhyayan Goyal, Aditya Chavan, Likhit Chaudhary, and Vaishnavi Bighot are joint co-authors of this work.",
   "data_split": {
     "training_samples": 6959,
     "validation_samples": 392,
@@ -21,25 +21,25 @@
     {
       "name": "Adhyayan Goyal",
       "email": "adhyayan.goyal23@pccoepune.org",
-      "role": "Co-Author & Researcher (Equal Contribution)",
+      "role": "Co-Author & Researcher",
       "affiliation": "Pimpri Chinchwad College of Engineering (PCCOE), Pune"
     },
     {
       "name": "Aditya Chavan",
       "email": "aditya.chavan23@pccoepune.org",
-      "role": "Co-Author & Researcher (Equal Contribution)",
+      "role": "Co-Author & Researcher",
       "affiliation": "Pimpri Chinchwad College of Engineering (PCCOE), Pune"
     },
     {
       "name": "Likhit Chaudhary",
       "email": "likhit.chaudhary23@pccoepune.org",
-      "role": "Co-Author & Researcher (Equal Contribution)",
+      "role": "Co-Author & Researcher",
       "affiliation": "Pimpri Chinchwad College of Engineering (PCCOE), Pune"
     },
     {
       "name": "Vaishnavi Bighot",
       "email": "vaishnavi.bighot23@pccoepune.org",
-      "role": "Co-Author & Researcher (Equal Contribution)",
+      "role": "Co-Author & Researcher",
       "affiliation": "Pimpri Chinchwad College of Engineering (PCCOE), Pune"
     },
     {
@@ -64,5 +64,5 @@
     "Comprehensive automated purification pipeline removing 290 stock-watermarked items, producing 7,351 pristine raw culinary vision records.",
     "Algorithmic synthetic domain randomization: Gaussian lens defocus blur (sigma 1.8-3.5), directional motion blur (camera shake simulation), and low-light illuminance reduction (factors 0.55-0.78)."
   ],
-  "license": "Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) with Commercial Rights Reserved Jointly by Authors"
+  "license": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) with Commercial Rights Reserved Jointly by Authors"
 }

@@ -1,6 +1,6 @@
 # NutriPlate: AI Dietary Intelligence, Bioavailability & Nutrition Tracking
 
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Institution: PCCOE Pune](https://img.shields.io/badge/Institution-PCCOE_Pune-orange.svg)](http://www.pccoepune.com/)
 [![Dataset: NutriPlate-Food35](https://img.shields.io/badge/Dataset-NutriPlate--Food35-blue.svg)](https://www.kaggle.com/datasets/nutriplate/nutriplate-food35)
 [![Framework: PyTorch & YOLOv8](https://img.shields.io/badge/PyTorch-CUDA_12.1-red.svg)](https://pytorch.org/)
@@ -36,7 +36,7 @@ As part of this research, we introduce **NutriPlate-Food35**, a benchmark datase
 * **Vaishnavi Bighot\*** (`vaishnavi.bighot23@pccoepune.org`)
 * **Dr. K. Rajeswari** (`kannan.rajeswari@pccoepune.org`) — *Faculty Mentor & Research Guide*
 
-*\*Denotes equal joint co-authorship contribution.*
+*\*Denotes joint co-authors.*
 
 ---
 

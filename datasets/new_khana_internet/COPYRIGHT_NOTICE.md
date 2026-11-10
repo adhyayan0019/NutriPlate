@@ -11,15 +11,15 @@
 
 ## 1. Authors & Joint Intellectual Property Ownership
 
-> **Equal Contribution Note:** *Adhyayan Goyal, Aditya Chavan, Likhit Chaudhary, and Vaishnavi Bighot contributed equally to this work as joint co-authors and researchers.*
+> **Equal Joint Co-Authorship Note:** *Adhyayan Goyal, Aditya Chavan, Likhit Chaudhary, and Vaishnavi Bighot contributed equally to this work as joint co-authors and researchers.*
 
-| Author Name | Role & Designation | Official Email | Institution | Contribution |
-|---|---|---|---|:---:|
-| **Adhyayan Goyal** | Co-Author & Researcher | `adhyayan.goyal23@pccoepune.org` | PCCOE, Pune | **Equal (25%)** |
-| **Aditya Chavan** | Co-Author & Researcher | `aditya.chavan23@pccoepune.org` | PCCOE, Pune | **Equal (25%)** |
-| **Likhit Chaudhary** | Co-Author & Researcher | `likhit.chaudhary23@pccoepune.org` | PCCOE, Pune | **Equal (25%)** |
-| **Vaishnavi Bighot** | Co-Author & Researcher | `vaishnavi.bighot23@pccoepune.org` | PCCOE, Pune | **Equal (25%)** |
-| **Dr. K. Rajeswari** | Faculty Mentor & Research Guide | `kannan.rajeswari@pccoepune.org` | PCCOE, Pune | Project Advisor |
+| Author Name | Role & Designation | Official Email | Institution |
+|---|---|---|---|
+| **Adhyayan Goyal** | Co-Author & Researcher | `adhyayan.goyal23@pccoepune.org` | PCCOE, Pune |
+| **Aditya Chavan** | Co-Author & Researcher | `aditya.chavan23@pccoepune.org` | PCCOE, Pune |
+| **Likhit Chaudhary** | Co-Author & Researcher | `likhit.chaudhary23@pccoepune.org` | PCCOE, Pune |
+| **Vaishnavi Bighot** | Co-Author & Researcher | `vaishnavi.bighot23@pccoepune.org` | PCCOE, Pune |
+| **Dr. K. Rajeswari** | Faculty Mentor & Research Guide | `kannan.rajeswari@pccoepune.org` | PCCOE, Pune |
 
 ---
 
@@ -45,7 +45,7 @@ Under the established jurisprudence of the Supreme Court of India (*Eastern Book
 
 ## 4. Citation Requirement
 Any academic, research, or scientific publication referencing or utilizing this dataset must cite the work as:
-> **Adhyayan Goyal\*, Aditya Chavan\*, Likhit Chaudhary\*, Vaishnavi Bighot\*, and Dr. K. Rajeswari.** (*\*Equal contribution*)  
+> **Adhyayan Goyal\*, Aditya Chavan\*, Likhit Chaudhary\*, Vaishnavi Bighot\*, and Dr. K. Rajeswari.** (*\*Joint co-authors*)  
 > *"NutriPlate-Food35: A Benchmark 35-Class Robust Indian Culinary Vision Dataset with Synthetic Domain Augmentation"*, Department of Computer Engineering, Pimpri Chinchwad College of Engineering (PCCOE), Pune, 2026.
 
 ---

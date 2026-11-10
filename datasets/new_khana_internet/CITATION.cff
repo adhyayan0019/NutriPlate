@@ -3,16 +3,12 @@ message: "If you use this dataset in your research or academic project, please c
 title: "NutriPlate-Food35: A Benchmark 35-Class Robust Indian Culinary Vision Dataset with Synthetic Domain Augmentation"
 version: 1.2.0
 date-released: 2026-11-10
-license: "CC-BY-NC-4.0"
-repository-code: "https://github.com/nutriplate/nutriplate-food35"
+license: "CC-BY-NC-SA-4.0"
+repository-code: "https://github.com/adhyayan0019/NutriPlate"
 authors:
   - family-names: "Goyal"
     given-names: "Adhyayan"
     email: "adhyayan.goyal23@pccoepune.org"
-    affiliation: "Department of Computer Engineering, Pimpri Chinchwad College of Engineering (PCCOE), Pune"
-  - family-names: "Rajeswari"
-    given-names: "Dr. K."
-    email: "kannan.rajeswari@pccoepune.org"
     affiliation: "Department of Computer Engineering, Pimpri Chinchwad College of Engineering (PCCOE), Pune"
   - family-names: "Chavan"
     given-names: "Aditya"
@@ -25,6 +21,10 @@ authors:
   - family-names: "Bighot"
     given-names: "Vaishnavi"
     email: "vaishnavi.bighot23@pccoepune.org"
+    affiliation: "Department of Computer Engineering, Pimpri Chinchwad College of Engineering (PCCOE), Pune"
+  - family-names: "Rajeswari"
+    given-names: "Dr. K."
+    email: "kannan.rajeswari@pccoepune.org"
     affiliation: "Department of Computer Engineering, Pimpri Chinchwad College of Engineering (PCCOE), Pune"
 keywords:
   - "indian culinary vision"

@@ -11,7 +11,7 @@ Use this complete dossier to file for official registration on the **Government 
 | **Class of Work** | **Literary / Computer Software / Database Compilation** |
 | **Title of the Work** | `NutriPlate-Food35: A Benchmark 35-Class Robust Indian Culinary Vision Dataset with Synthetic Domain Augmentation` |
 | **Language of the Work** | English (Annotations, JSON Manifest & Algorithmic Code) |
-| **Joint Authors & Equal Contributors** | 1. **Adhyayan Goyal** (`adhyayan.goyal23@pccoepune.org`), Indian<br>2. **Aditya Chavan** (`aditya.chavan23@pccoepune.org`), Indian<br>3. **Likhit Chaudhary** (`likhit.chaudhary23@pccoepune.org`), Indian<br>4. **Vaishnavi Bighot** (`vaishnavi.bighot23@pccoepune.org`), Indian<br>*(Equal joint co-authorship)* |
+| **Joint Authors & Co-Creators** | 1. **Adhyayan Goyal** (`adhyayan.goyal23@pccoepune.org`), Indian<br>2. **Aditya Chavan** (`aditya.chavan23@pccoepune.org`), Indian<br>3. **Likhit Chaudhary** (`likhit.chaudhary23@pccoepune.org`), Indian<br>4. **Vaishnavi Bighot** (`vaishnavi.bighot23@pccoepune.org`), Indian<br>*(Joint co-authorship)* |
 | **Faculty Research Guide & Advisor** | **Dr. K. Rajeswari** (`kannan.rajeswari@pccoepune.org`), Indian |
 | **Institutional Affiliation** | **Department of Computer Engineering, Pimpri Chinchwad College of Engineering (PCCOE), Pune, Maharashtra - 411044** |
 | **Nature of Applicant's Interest** | **Joint Authors / Joint Intellectual Property Owners** |

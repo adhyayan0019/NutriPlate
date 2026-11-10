@@ -1,9 +1,9 @@
-# Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+# Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 ## with Commercial Licensing Reservation Addendum
 
 **Dataset Title:** `NutriPlate-Food35: A Benchmark 35-Class Robust Indian Culinary Vision Dataset with Synthetic Domain Augmentation`  
 **Dataset Acronym:** `NP-Food35` (7,351 Purified Images across 35 Classes)  
-**Authors (Equal Contribution):** Adhyayan Goyal, Aditya Chavan, Likhit Chaudhary, Vaishnavi Bighot  
+**Authors (Joint Co-Authors):** Adhyayan Goyal, Aditya Chavan, Likhit Chaudhary, Vaishnavi Bighot  
 **Faculty Mentor:** Dr. K. Rajeswari  
 **Institution:** Pimpri Chinchwad College of Engineering (PCCOE), Pune, India  
 **Copyright (c) 2026 The Authors. All Rights Reserved.**
@@ -19,7 +19,8 @@ You are granted permission to:
 Under the following binding conditions:
 1. **Attribution (BY):** You must give appropriate credit equally to **Adhyayan Goyal, Aditya Chavan, Likhit Chaudhary, Vaishnavi Bighot, and Dr. K. Rajeswari (PCCOE Pune)**, provide a link to this license, and clearly cite the research as specified in `CITATION.cff`.
 2. **NonCommercial (NC):** You may NOT use the material, in whole or in part, or any neural model directly trained on this dataset, for commercial purposes, revenue-generating mobile applications, closed-source enterprise software, or proprietary monetization without a formal commercial license.
-3. **No Sublicensing / Reselling:** You may not repackage, re-license, or commercially sell this dataset.
+3. **ShareAlike (SA):** If you remix, transform, or build upon the material, you must distribute your contributions under the same license (CC BY-NC-SA 4.0) as the original.
+4. **No Sublicensing / Reselling:** You may not repackage, re-license, or commercially sell this dataset.
 
 ---
 
