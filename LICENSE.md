@@ -9,7 +9,7 @@
 * **Vaishnavi Bighot** (`vaishnavi.bighot23@pccoepune.org`)
 
 **Faculty Mentor & Research Guide:**
-* **Dr. K. Rajeswari** (`kannan.rajeswari@pccoepune.org`)
+* **Dr. Kannan Rajeswari** (`kannan.rajeswari@pccoepune.org`)
 
 **Copyright (c) 2026 The Authors. PCCOE Pune. All Rights Reserved.**
 

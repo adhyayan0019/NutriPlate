@@ -34,7 +34,7 @@ As part of this research, we introduce **NutriPlate-Food35**, a benchmark datase
 * **Aditya Chavan\*** (`aditya.chavan23@pccoepune.org`)
 * **Likhit Chaudhary\*** (`likhit.chaudhary23@pccoepune.org`)
 * **Vaishnavi Bighot\*** (`vaishnavi.bighot23@pccoepune.org`)
-* **Dr. K. Rajeswari** (`kannan.rajeswari@pccoepune.org`) — *Faculty Mentor & Research Guide*
+* **Dr. Kannan Rajeswari** (`kannan.rajeswari@pccoepune.org`) — *Faculty Mentor & Research Guide*
 
 *\*Denotes joint co-authors.*
 
@@ -70,16 +70,16 @@ python ai-model/train_apna_khana.py
 If you utilize this repository, software, or the NutriPlate-Food35 dataset in your research, please cite:
 ```bibtex
 @misc{goyal2026nutriplate,
-  author = {Adhyayan Goyal and Aditya Chavan and Likhit Chaudhary and Vaishnavi Bighot and Dr. K. Rajeswari},
+  author = {Adhyayan Goyal and Aditya Chavan and Likhit Chaudhary and Vaishnavi Bighot and Kannan Rajeswari},
   title = {NutriPlate-Food35: A Benchmark 35-Class Robust Indian Culinary Vision Dataset with Synthetic Domain Augmentation},
   year = {2026},
   institution = {Pimpri Chinchwad College of Engineering (PCCOE), Pune},
-  howpublished = {\url{https://github.com/nutriplate/nutriplate-ai}}
+  howpublished = {\url{https://github.com/adhyayan0019/NutriPlate}}
 }
 ```
 
 ---
 
 ## ⚖️ License
-* **Dataset:** Licensed under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](datasets/new_khana_internet/LICENSE.md).
+* **Dataset:** Licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](datasets/new_khana_internet/LICENSE.md).
 * **Software:** Proprietary research license of the authors at PCCOE Pune. See [LICENSE.md](LICENSE.md).
