@@ -1,0 +1,57 @@
+# Dependencies & Virtual Environments
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+venv/
+**/venv/
+.venv/
+ai-model/venv/
+.env
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Large Compressed Archives (>100MB rejected by GitHub)
+*.rar
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.pptx
+
+# Legacy & Unused Image Datasets
+khana/
+khana_archive_unused/
+uploads/
+test_dl_dir/
+internet_test_images/
+ai-model/khana_full_yolo/
+ai-model/khana_full_yolo_archive_unused/
+ai-model/yolo_dataset/
+ai-model/feedback_dataset/
+
+# Dataset Images (Images hosted on Kaggle, metadata tracked in Git)
+datasets/new_khana_internet/train/
+datasets/new_khana_internet/val/
+datasets/**/train/
+datasets/**/val/
+*.cache
+
+# Neural Network Checkpoints & Runs (Trained models tracked externally/Releases)
+*.pt
+*.pth
+*.h5
+*.onnx
+ai-model/runs/
+runs/
+weights/
+ai-model/weights/
+
+
+# OS & Temp Files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+

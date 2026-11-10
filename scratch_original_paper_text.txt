@@ -1,0 +1,596 @@
+
+=== PAGE 1 ===
+NutriPlate: An Edge-Cloud Decoupled Deep Instance
+Segmentation and Biochemical Synergy Framework
+for Automated Indian Dietary Assessment
+Dr. K. Rajeswari
+kannan.rajeswari@pccoepune.org
+Likhit Chaudhary
+likhit.chaudhary23@pccoepune.org
+Aditya Chavan
+aditya.chavan23@pccoepune.org
+Adhyayan Goyal
+adhyayan.goyal23@pccoepune.org
+Vaishnavi Bighot
+vaishnavi.bighot23@pccoepune.org
+Department of Computer Engineering, Pimpri Chinchwad College of Engineering, Pune, India
+Abstract—Automated dietary assessment is very critical in
+reducing the worrying rise of non-communicable diseases such
+as Type-2 diabetes and cardiovascular conditions in South Asia.
+The existing computer vision based dietary assessment systems
+however are completely incompetent in processing Indian dietary
+scenarios given the lack of defined boundaries in liquid-based
+foods, high intra-class variability in images, composite food shapes,
+and severe object occlusions in a thali setup. In this paper,
+we present NutriPlate, which is an innovative, decoupled edge-
+cloud system tailored to perform real-time automated Indian
+dietary analysis. The key ingredient of the system is an extremely
+lightweight anchor-free instance segmentation network with a
+unique Prototypical mask synthesis head that enables pixel-perfect
+instance segmentation in 24.8 ms on mobile devices. Segmented
+objects are then calibrated using a reference plate and mapped
+to volumes and weights of food portions. Most importantly,
+NutriPlate establishes the semantics between visual food analysis
+and metabolic health by means of a biochemical interaction
+matrix based on ICMR-NIN IFCT 2017 and DGI 2024. This
+engine captures non-linear micronutrient synergy (such as ascorbic
+acid-mediated non-heme iron reduction) and chelation chemistry
+(phytic acid and tannin-mediated precipitation of iron/zinc) of
+the antagonists. Also, the active learning system with the 576-
+dimensional visual gallery of food objects helps in zero-training
+adaptation to user-corrected food objects. NutriPlate provides a
+benchmarking score of 89.4% mAP@50, 82.7% mask IoU, and a
+portion estimation error of 8.8% across 412 Indian dishes.
+Index Terms—Deep Instance Segmentation, Edge-Cloud Com-
+puting, Dietary Assessment, Indian Food Composition (IFCT),
+Biochemical Synergy, Monocular Volumetric Estimation, Active
+Learning.
+I. INTRODUCTION
+Non-communicable diseases (NCDs) like T2DM (Type-2
+Diabetes Mellitus) and cardiovascular diseases have become
+epidemic in South Asia, with India being called the diabetes
+capital of the world [1]. Modification of diet is the key
+strategy to manage metabolic syndrome disorders [2]. However,
+conventional approaches for recording dietary intake of patients,
+such as 24 hour dietary recall (24HDR) and self-reported food
+diaries, are prone to huge recall bias, reporting underestimations
+of 30-40% and fast patient compliance [3].
+Even though there has been growing popularity in visual food
+recognition through smartphones, the current methodologies
+are solely based on benchmarks from the West, namely Food-
+101 [4] and Nutrition5k [5]. Such techniques break down when
+faced with traditional Indian meals owing to the following four
+computational problems:
+1) Viscosity and Overlapping Components:Unlike West-
+ern food items which have a clear separation between
+different ingredients (e.g. burger or an apple), Indian food
+items have highly viscous gravies such as sambars, dals
+and kormas, vegetable stir-fry (sabzi) and overlapping
+flatbreads like roti and paratha.
+2) High Intra-class and Inter-class Visual Ambiguity:
+Foods that display similar visual color spectrums (such
+as yellowdal tadkaand yellowkadhi pakora) exhibit
+vastly different macronutrient and glycemic indexes.
+3) Neglect of Biochemical Bioavailability:Standard calorie
+counting systems rely on an oversimplistic 1:1 relation of
+consumption-to-absorption of nutritional intake. The truth
+is that classical Indian plant-based foods have antinutri-
+tional chelators like phytates, polyphenolic tannins which
+bind essential divalent cations like Fe2+,Zn 2+,Ca 2+ and
+thus decrease the bioavailable absorption up to 70%
+unless neutralized by organic acid promoters, for instance
+ascorbic acid (Vitamin C) [6], [7].
+4) Inference Latency and Heat Issues:Complex two-step
+instance segmentation models such as Mask R-CNN
+[8] use more than 120 GFLOPs and thus experience a
+considerable inference latency (>300ms).
+To overcome these fundamental bottlenecks, this paper
+introducesNutriPlate, an edge-cloud decoupled framework for
+granular Indian dietary assessment. Our primary contributions
+are:
+• An anchor-free architecture for edge optimization with
+ProtoNet prototype mask generation, which produces sub-
+25 ms mobile inference time with 89.4% mAP@50 on
+412 Indian food categories.
+• A formulation for monocular estimation of volume por-
+tions based on calibration of dining plate edges and food
+shape features (ξ i).
+=== PAGE 2 ===
+Fig. 1. NutriPlate Edge-Cloud Separated Architecture: High-Frequency In-
+stance Segmentation performed in edge computing, and nonlinear biochemical
+interactions along with active learning are executed in microservices cloud
+servers.
+• Biochemical Interaction Matrix ( A∈R M×M ) introduced
+and used in conjunction with ICMR-NIN IFCT (2017)
+for calculating biologically available nutrient absorption.
+• The ICMR-NIN DGI (2024) Clamped Smart Plate Health
+Scoring Engine that analyzes caloric restrictions per meal,
+PE ratio and carbohydrate ceiling at night.
+• An active learning loop that involves a MobileNetV3
+visual embedding gallery that continuously learns from
+user corrections of dishes without retraining of the
+network.
+II. RELATEDWORK
+A. Computer Vision in Dietary Assessment
+Early visual dietary assessment systems regarded food
+tracking as an elementary image classification problem [4], [9].
+Despite obtaining impressive top-5 performance for classifi-
+cation of individual dishes on plates by deep convolutional
+backbone networks and ViT [10], the approaches fail entirely
+when it comes to plates containing multiple dishes in the case
+of Indian thali. Multi-label classification algorithms handle the
+co-occurrence of dishes, but not their pixel-wise masks.
+B. Real-Time Instance Segmentation
+Two-stage approaches like Mask R-CNN [8] provide good
+localization through Region Proposal Network (RPN) and
+RoI-Align operations; however, their substantial compute
+burden makes them unsuitable for real-time inference on
+mobile devices. On the other hand, single-stage detectors
+[12], [13] and prototypical instance segmentation approaches,
+such as YOLACT [14] and YOLOv8-seg [15], separate mask
+prediction into prototype base prediction across the entire image
+and instance coefficients. NutriPlate follows the prototypical
+approach with added specular reflection removal and culinary
+color texture heuristics.
+C. Portion Estimation and Nutritional Knowledge Bases
+In the past, portion estimation needed to make use of
+binocular stereo cameras, structured light sensors for depth, or
+Fig. 2. The decoupled mask synthesis pipeline in ProtoNet. High-resolution
+prototype feature bases are linearly modulated using instance-dependent
+coefficient vectors.
+even fiducials placed along with the plate [16], [17]. Mono-
+vision-based approaches use information about geometry to
+calculate the volumetric portion or reference lines bounding
+the container [18]. However, the food databases that exist in
+the west (for example, USDA FoodData Central) do not take
+into account the cooking processes in India.
+III. SYSTEMARCHITECTURE ANDMETHODOLOGY
+The NutriPlate structure separates real-time edge instance
+segmentation from the cloud-based biochemical synergy model
+(Fig. 1).
+A. Anchor-Free Deep Instance Segmentation
+In order to address the issues arising due to anchor tuning and
+proposal redundancy, the NutriPlate framework uses an anchor-
+free bounding box regression head on multi-scale feature maps
+P3,P 4, andP 5 generated by PANet.
+The regression head produces a 4-dimensional distance
+vector for candidate grid position (xc, yc) at stride level s
+as:
+d= (l, t, r, b)∈R 4
++ (1)
+which denotes the spatial offsets from (xc, yc) to the left
+boundary (l), top boundary ( t), right boundary ( r), and bottom
+boundary (b) of the food example. The offsets are transformed
+into absolute diagonal bounding box coordinates using the
+following equations:
+x1 =x c −l·s, y 1 =y c −t·s
+x2 =x c +r·s, y 2 =y c +b·s(2)
+where “s” is the stride for the feature pyramid. This model
+removes all such geometric constraints that were required to
+be followed with the traditional anchor grid models.
+The instance segmentation head utilizes the ProtoNet struc-
+ture illustrated in Fig. 2. The sub-network ϕproto is used on
+feature mapP 3 to producek= 32prototype masks:
+P=ϕ proto(P3)∈R k× H
+4 × W
+4 (3)
+In parallel, the detection head produces a k-dimensional
+coefficient vector for each bounding box candidatei:
+Ci = [ci,1, ci,2, . . . , ci,k]T ∈R k (4)
+=== PAGE 3 ===
+Instance mask at full resolution Mi ∈[0,1]
+H
+4 × W
+4 is obtained
+through linear combination with sigmoid activation function:
+Mi(u, v) =σ
+⎛
+⎝
+k∑︂
+j=1
+ci,j ·P j(u, v)
+⎞
+⎠ (5)
+In this case, Eq. (3) is used to obtain k common prototypical
+feature masks over the whole image, Eq. (4) predicts the
+instance-dependent coefficients Ci, and then Eq. (5) sums up
+these bases linearly using the sigmoid activation σ(·), resulting
+in pixel-wise confidence masks that are further cropped into
+Bi.
+B. Multi-Task Loss Formulation
+Model parameters are optimized end-to-end via a composite
+objective:
+Ltotal =λ boxLCIoU +λ dflLDFL +λ clsLBCE +λ maskLmask (6)
+which combines localization through bounding box ( LCIoU),
+distribution focal loss ( LDFL), classification cross-entropy (
+Lcls), and segmentation mask precision ( Lmask) with task
+weighting factors ( λbox = 7.5, λdfl = 1.5, λcls = 0.5, λmask =
+2.5).
+The Complete Intersection-over-Union (CIoU) loss is for-
+mulated as:
+LCIoU = 1−IoU+ ρ2(b, bgt)
+c2 +α iouv(7)
+v= 4
+π2
+(︃
+arctan wgt
+hgt −arctan w
+h
+)︃2
+(8)
+αiou = v
+(1−IoU) +v (9)
+The function ρ(b, bgt) in Eq. (7) stands for the Euclidean
+distance between the centroids of the predicted and ground-
+truth boxes, while c denotes the length of the diagonal of the
+smallest enclosing bounding box. The aspect ratio consistency
+coefficient v and balancing weight αiou are defined by Eqs. (8)–
+(9).
+In order to account for vague boundary definitions of gravy
+regions, Distribution Focal Loss (DFL) performs continuous
+coordinate regression using discrete bin distribution:
+LDFL(Si, Si+1) =−((y i+1 −y) log(S i) + (y−y i) log(Si+1))
+(10)
+Loss function (10) trains gradients on bins (yi, yi+1) that
+contain the continuous value y, thereby allowing the model
+to learn probability distributions for crisp boundaries of
+amorphous curries.
+The instance mask loss is computed via binary cross-entropy
+over the active spatial support domainΩ i:
+Lmask =− 1
+|Ωi|
+∑︂
+(u,v)∈Ωi
+[︂
+M gt logM i
++ (1−M gt) log(1−M i)
+]︂
+(11)
+Fig. 3. Biochemical Interaction Diagram: synergies (green solid arrows) and
+chelation (antagonisms) (red dashed lines).
+calculates the binary cross-entropy loss on a per-pixel basis
+for the predicted mask Mi and the binary ground truth mask
+M gt only inside the bounding box regionΩ i.
+Greedy Non-Maximum Suppression (NMS) suppresses re-
+dundant candidate proposals:
+IoU(Bi, Bj) = |Bi ∩B j|
+|Bi ∪B j| > τNMS (12)
+The equation (12) suppresses redundant proposal Bj if its
+intersection with a higher-scoring proposal Bi is larger than
+τNMS = 0.40. Together with the bounding area constraints of
+0.015≤area ratio≤0.70 , it prevents false positives due to
+specular reflections on stainless steel thalis.
+C. Monocular Volumetric Portion Approximation
+For transformation of area of segmented 2D pixels Amask,i =∑︁
+(u,v) 1{Mi(u,v)≥0.5} into real-world portion mass, without
+relying on any external landmarks, NutriPlate uses the circular
+boundary of the plate as the intrinsic landmark. The fitting of
+the circle/convex hull of the dining plate provides reference area
+Aref in terms of standard Indian thali diameter Dplate ≈28 cm.
+The volumetric massm i (in grams) is estimated via:
+mi =ρ i ·ξ i ·
+(︃Amask,i
+Aref
+)︃
+· π
+4 D2
+plate ·h eff
+i (13)
+The mass of the food mi is calculated based on equation (13)
+by multiplying the area of the plate surface
+(︂
+π
+4 D2
+plate
+)︂
+with the
+relative area occupied on the plate (Amask,i/Aref), bulk density
+ρi (in g/cm3 obtained from IFCT), effective height heff
+i and
+morphological shape coefficientξ i ∈[0.4,1.2].
+D. Biochemical Synergy and Bioavailability Modeling
+Indian traditional diets contain phyate and polyphenolic
+tannins, which cause divalent metal ions Fe2+,Zn 2+,Ca 2+ to
+form insoluble precipitates. On the other hand, reducing agents,
+such as ascorbic acid (Vitamin C), convert the insoluble ferric
+iron Fe3+ to readily available ferrous iron Fe2+, increasing
+mucosal absorption by +210% (Figure 3).
+Define n∈R M to be the nutrient vector obtained directly
+from the IFCT database. The biochemical interaction matrix is
+=== PAGE 4 ===
+defined as A∈R M×M , where element αj,k represents cross
+talk kinetics between nutrientkand nutrientj:
+αj,k =
+⎧
+⎪⎨
+⎪⎩
+>0Synergistic promoter (e.g., Vit C→Fe)
+<0Antagonistic chelator (e.g., Phytates→Fe/Zn)
+0Metabolically orthogonal
+(14)
+The physiologically bioavailable nutrient level N eff
+j is governed
+by a non-linear saturation kinetic:
+N eff
+j =N j ·
+⎡
+⎣1 +
+∑︂
+k̸=j
+αj,k
+(︃ Nk
+Nk +K j,k
+)︃⎤
+⎦ (15)
+Equation (14) classifies nutrient pairs as promoters, inhibitors,
+or orthogonal nutrients; whereas Equation (15) provides the
+effective bioavailable amount N eff
+j , employing a Michaelis-
+Menten style saturation equation with a half-saturation param-
+eterK j,k based on clinical balance data [7], [19].
+E. ICMR-NIN DGI 2024 Clamped Health Scoring Engine
+NutriPlate evaluates overall plate quality via a composite
+scoreS plate ∈[10,100]initialized from baselineS 0 = 100:
+Splate =clamp
+(︁
+S0 −∆S cal −∆S prot
+−∆S carb −∆S fat + Γfiber,10,100
+)︁
+(16)
+Equation (16) clamps the overall meal health score within
+[10,100] by subtracting caloric, protein, carbohydrate, and fat
+penalties and adding fiber/vegetable incentives.
+The calorie variation index ∆Scal evaluates the energy intake
+budgets set by ICMR-NIN for specific meals like 500 kcal for
+breakfast, 750 kcal for lunch, 550 kcal for dinner, and 250 kcal
+for snacks:
+∆Scal = min
+(︃
+45,max
+(︃
+10,
+⌈︃Emeal −E target
+60
+⌉︃
+×6
+)︃)︃
+(17)
+where points are deducted in 60 kcal intervals up to a maximum
+of 45 points.
+Protein adequacy is governed by the Protein-to-Energy ratio
+(PEmeal = (4·P/E meal)×100):
+∆Sprot =κ p ·max (0,PE target −PE meal)
+−β p ·1 {PEmeal≥12%} (18)
+where PEtarget = 10% is the required ICMR-NIN baseline,
+κp = 2.0 penalizes proteins, while βp = 5.0 is an incentive to
+have PEmeal ≥12%.
+Carbohydrate density is regulated relative to the total caloric
+share (C pct = (4·C/E meal)×100):
+∆Scarb =κ c ·max (0, C pct −C limit)
++δ noct ·1 {Dinner∧Cpct>58%} (19)
+whereC limit = 60%represents the limit value of the carbohy-
+drate energy proportion ( κc = 1.0), while δnoct = 25 provides
+an additional penalty for carbohydrates after dinner that exceed
+58%to avoid glycemic variability at night.
+TABLE I
+NUTRIPLATEINDIANFOODDATASETCOMPOSITION
+Culinary Domain Classes Images Instances IFCT Coverage
+Dals, Curries & Gravies 118 6,270 13,480 100%
+Breads & Rotis 42 3,020 6,430 100%
+Rice Preparations 56 2,970 4,310 100%
+Dry Veg / Sabzis 124 4,210 9,260 100%
+Snacks, Sweets & Misc. 72 4,000 7,400 100%
+Total 412 20,470 40,880 100%
+Lipid density is controlled by monitoring the fat caloric
+percentage (F pct = (9·F/E meal)×100):
+∆Sfat =κ f ·max (0, F pct −F limit)(20)
+where Flimit = 30% represents the ICMR-NIN upper threshold
+for visible and invisible fats ( κf = 2.0), discouraging heavily
+fried dishes.
+Finally, the protective micronutrient and dietary fiber term
+encourages daily vegetable intake:
+Γfiber =ω 1 ·min
+(︃
+1.0, Fibermeal
+Fibertarget
+)︃
+−10·1 {Aveg=0} (21)
+where Fibertarget = 10g per meal ( ω1 = 5 ), and meals
+completely lacking green vegetables ( Aveg = 0) suffer a 10-
+point deficit.
+F . Active Learning and Visual Embedding Gallery
+For dealing with regional cuisine without having to retrain
+their models, NutriPlate uses predictive entropy:
+H(x) =− 1
+logC
+C∑︂
+c=1
+pc(x) logp c(x)(22)
+Classification uncertainty H(x) for C different foods is
+determined by Equation (22) according to uncertainty sampling
+techniques [20]. When H(x)>0.65 , a user needs to verify
+results.
+When the user corrects a label, NutriPlate computes a 576-
+dimensional L2-normalized embedding vector z∈R 576 from
+the backbone model edge MobileNetV3 and stores it in a
+permanent gallery. On further appearances, cosine similarity
+matching:
+Sim(z,z gal) = z·z gal
+∥z∥2∥zgal∥2
+≥0.76(23)
+obtains the verified dish label under different lighting conditions
+and perspectives. Cloud updates are done periodically using
+regularized batch gradient descent:
+θ(t+1) =θ (t) −η·
+[︂
+∇θLtotal(x, y) +γ reg(θ(t) −θ (0))
+]︂
+(24)
+This involves updating the cloud model’s parameters θ using a
+learning rate of η, with a regularizer of L2 penalty γreg(θ(t) −
+θ(0))which helps tie the weights to the base parametersθ (0).
+=== PAGE 5 ===
+TABLE II
+ARCHITECTURALBENCHMARKCOMPARISONACROSSDETECTION ANDSEGMENTATIONBASELINES
+Architecture Params Compute Bounding Box mAP Mask Segmentation Mobile Latency Portion Error
+(M) (GFLOPs) @50 @50–95 mAP@50 IoU (Snapdragon 8) MAPE (%)
+MobileNetV2-SSD [21] 4.3 3.8 67.2% 41.5% — —14.2 ms23.4%
+ResNet50-Mask R-CNN [8] 44.2 134.6 86.8% 62.4% 83.5% 78.4% 186.4 ms 12.6%
+YOLOv7-seg [22] 37.8 141.9 88.1% 64.7% 85.9% 80.1% 92.1 ms 10.4%
+YOLOv8x-seg (Server) [15] 71.8 344.191.3% 69.2% 89.8% 84.2%245.8 ms8.2%
+NutriPlate (Edge-Ours) 3.2 12.4 89.4% 65.8% 87.2% 82.7% 24.8 ms 8.8%
+Fig. 4. Convergence of classification and segmentation performance for
+NutriPlate after 200 training epochs with an optimal testing accuracy of
+91.95% at epoch 195 and a final training accuracy of 97.44%, where the gap
+is minimal (≈6.2%).
+IV. EXPERIMENTALSETUP ANDRESULTS
+A. Dataset Taxonomy and Benchmark Baselines
+We benchmarked NutriPlate on 20,470 Indian meal images
+with annotations belonging to 412 food classes across 5 regions
+in India. Table I depicts the dataset taxonomy. NutriPlate uses
+an ultra-light anchor-free ProtoNet segmentation model (with
+3.2M parameters, based on the YOLOv8-seg Nano network
+architecture) that was fine-tuned for 412 Indian food classes for
+the edge client. Table II provides benchmark results compared
+to state-of-the-art detection and segmentation models, two-stage
+Mask R-CNN, and a heavy cloud-based baseline YOLOv8x-seg
+(with 71.8M parameters).
+B. Training Dynamics and Empirical Convergence
+The anchor-free ProtoNet segmentation model, NutriPlate,
+was trained for 200 epochs under the multi-task loss criterion, as
+given by Eq. (6). The accuracy evolution with respect to training
+and validation data sets is demonstrated by Fig. 4. Accuracy
+on the training data set rises sharply up to 25 epochs and
+reaches 97.44%. Meanwhile, accuracy on the testing data set
+saturates at 91.95% by epoch 195. This small generalization gap
+(≈6.2% ) indicates the effectiveness of mosaic augmentations
+and distribution focal loss to avoid overfitting.
+Fig. 5. Convergence dynamics of cross-entropy loss through 200 training
+epochs. Monotonic stabilization of training and validation loss ensures a smooth
+gradient descent without any numerical issues.
+Figure 5 depicts the respective loss curve in terms of cross-
+entropy for 200 epochs. For both training and validation loss
+curves, we have seen very sharp declines initially, falling
+below 0.50 at epoch 75 and reaching asymptotes of 0.10 and
+0.32, respectively. This fact is further evident from the lack
+of diverging validation loss, which ensures proper gradient
+descent and robust feature learning for all types of curry, rice,
+and reflective steel textures.
+C. Benchmark Performance and Edge Efficiency
+Based on results presented in Table II, NutriPlate provides
+significant efficiency over two-stage and heavy server-grade
+benchmarks. Although ResNet50-Mask R-CNN takes 186.4 ms,
+NutriPlate reduces the inference time down to24.8 ms( 7.5×
+speedup) with 92.7% parameters’ compression. Though server-
+grade YOLOv8x-seg provides slightly higher bounding boxes
+mAP ( 91.3%), due to 71.8M parameters and 344.1 GFLOP
+computations, it suffers from excessive heat throttling, making
+the frame rate below 4 FPS. NutriPlate is the unique model
+among all investigated segmentation models that operates
+within the real-time operating range ( >30 FPS ↔<33.3 ms)
+with 87.2% mask mAP@50 and 82.7% mask IoU scores for
+difficult Indian cuisines (AUC=0.92 Roti, AUC=0.87 Curry,
+AUC=0.89 Rice).
+=== PAGE 6 ===
+D. Portion Estimation and Bioavailability Validation
+NutriPlate’s monocular estimation of portions in physical
+weight estimation tests conducted over 500 plates resulted
+in an MAPE of only 8.8%, easily surpassing the bounding
+box method ( 23.4%) which is normally used. In addition to
+that, the verification through clinical blood biomarker analysis
+on a sample group of 40 participants showed an increase in
+the predictive correlation between NutriPlate’s biochemical
+interaction algorithm and serum iron levels after eating to
+r= 0.81(p <0.001) fromr= 0.42.
+V. DISCUSSION ANDPRACTICALDEPLOYMENT
+Deploying deep learning in daily dietary practice presents
+several domain-specific edge complexities:
+1) Penetration of Liquid Gravy and Coexistence:Liquid
+curries tend to seep into the rice piles. In this regard, the
+ProtoNet head is able to tackle this problem effectively
+by generating smooth spatial masks rather than hard
+boxes.
+2) Edge Client Battery Consumption and Heat Genera-
+tion:Through offloading intensive matrix operations and
+asynchronous learning on the cloud via microservices,
+the edge client requires just 420 mW average energy for
+inference tasks, saving mobile battery power.
+3) Clinical Impact on Glycemic Control in South Asians:
+The traditional dietary practices of Indians often result
+in rapid postprandial glucose spikes due to high amounts
+of refined carbohydrates and insufficient fiber. Through
+its meal scoring rules, NutriPlate allows the patient to
+lower the bedtime glucose spike.
+VI. CONCLUSION ANDFUTURESCOPE
+NutriPlateis the clinical, decoupled framework proposed
+in this research for Indian diet analysis. Utilizing anchor-free
+prototypical instance segmentation, monocular volume com-
+putation, ICMR-NIN IFCT data, and Biochemical Interaction
+Matrix, NutriPlate addresses the problem of non-conventional
+food boundary and bioavailability functions. NutriPlate obtains
+89.4% mAP@50 accuracy with 24.8 ms inference time and
+portion estimation error of 8.8%. The proposed system provides
+a scalable basis for the prevention of diabetes. We plan
+to explore the usage of ToF cameras in combination with
+continuous glucose monitoring telemetry in the future research
+work.
+REFERENCES
+[1] World Health Organization, “Global report on diabetes: Regional focus
+on South-East Asia,”WHO Technical Report Series, Geneva, Switzerland,
+2023. [Online]
+[2] R. M. Anjana et al., “Metabolic non-communicable disease health report
+in India: ICMR-INDIAB study,”The Lancet Diabetes & Endocrinology,
+vol. 11, no. 7, pp. 474–489, 2023. [DOI]
+[3] A. F. Subar et al., “Addressing current criticism regarding the value
+of self-report dietary data,”The Journal of Nutrition, vol. 145, no. 12,
+pp. 2639–2644, 2015. [DOI]
+[4] L. Bossard, M. Guillaumin, and L. Van Gool, “Food-101 – Mining
+discriminative components with random forests,” inProc. ECCV, 2014,
+pp. 446–461. [Online]
+[5] Q. Thames et al., “Nutrition5k: Towards analysis of calorie and nutrient
+content in complete dishes,” inProc. IEEE/CVF CVPR, 2021, pp. 14716–
+14725. [DOI]
+[6] T. Longvah et al.,Indian Food Composition Tables (IFCT 2017), National
+Institute of Nutrition (ICMR-NIN), Hyderabad, India, 2017. [Online]
+[7] R. S. Gibson et al., “A review of phytate, iron, zinc, and calcium
+concentrations in plant-based complementary foods,”Food and Nutrition
+Bulletin, vol. 31, no. 2, pp. S134–S146, 2010. [DOI]
+[8] K. He, G. Gkioxari, P. Doll ´ar, and R. Girshick, “Mask R-CNN,” inProc.
+IEEE ICCV, 2017, pp. 2961–2969. [DOI]
+[9] V . Mezgec and B. K. Seljak, “NutriNet: A deep learning food and drink
+image recognition system for dietary assessment,”Nutrients, vol. 9, no. 7,
+p. 657, 2017. [DOI]
+[10] A. Vaswani et al., “Attention is all you need,” inAdvances in Neu-
+ral Information Processing Systems (NeurIPS), 2017, pp. 5998–6008.
+[Online]
+[11] J. Chen and C. W. Ngo, “Deep-based ingredient recognition for cooking
+recipe retrieval,” inProc. ACM Multimedia, 2021, pp. 1020–1028. [DOI]
+[12] J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, “You only look
+once: Unified, real-time object detection,” inProc. IEEE CVPR, 2016,
+pp. 779–788. [DOI]
+[13] O. Ronneberger, P. Fischer, and T. Brox, “U-Net: Convolutional networks
+for biomedical image segmentation,” inProc. MICCAI, 2015, pp. 234–
+241. [Online]
+[14] D. Bolya, C. Zhou, F. Xiao, and Y . J. Lee, “YOLACT: Real-time instance
+segmentation,” inProc. IEEE/CVF ICCV, 2019, pp. 9157–9166. [DOI]
+[15] J. Terven and D. Cordova-Esparza, “A comprehensive review of YOLO:
+From YOLOv1 to YOLOv8 and beyond,”ACM Comput. Surv., vol. 56,
+no. 2, pp. 1–35, 2023. [DOI]
+[16] M. Puri et al., “Recognition and volume estimation of food intake using
+a mobile device,” inProc. IEEE WACV, 2009, pp. 1–8. [DOI]
+[17] J. Dehais, M. Anthimopoulos, S. Christodoulidis, and S. Mougiakakou,
+“Two-view 3D reconstruction for food volume estimation,”IEEE Trans.
+Multimed., vol. 19, no. 1, pp. 37–48, 2016. [DOI]
+[18] S. Fang et al., “Single-view food portion estimation with domain
+adaptation,” inProc. IEEE ICIP, 2019, pp. 764–768. [DOI]
+[19] R. Hurrell and I. Egli, “Iron bioavailability and dietary reference values,”
+The American Journal of Clinical Nutrition, vol. 91, no. 5, pp. 1461S–
+1467S, 2010. [DOI]
+[20] B. Settles, “Active learning literature survey,” University of Wisconsin-
+Madison, Computer Sciences Technical Report 1648, 2009. [Online]
+[21] M. Sandler, A. Howard, M. Zhu, A. Zhmoginov, and L. C. Chen,
+“MobileNetV2: Inverted residuals and linear bottlenecks,” inProc.
+IEEE/CVF CVPR, 2018, pp. 4510–4520. [DOI]
+[22] C. Y . Wang, A. Bochkovskiy, and H. Y . M. Liao, “YOLOv7: Trainable
+bag-of-freebies sets new state-of-the-art for real-time object detectors,”
+inProc. IEEE/CVF CVPR, 2023, pp. 7464–7475. [DOI]

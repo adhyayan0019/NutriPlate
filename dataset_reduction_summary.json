@@ -1,0 +1,571 @@
+{
+  "total_original": 131818,
+  "total_target": 50000,
+  "total_archived": 81818,
+  "classes_count": 80,
+  "min_class_count": 125,
+  "max_class_count": 1829,
+  "median_class_count": 472.5,
+  "classes": [
+    {
+      "class": "aloo gobi",
+      "original_count": 1007,
+      "new_count": 532,
+      "archived_count": 475,
+      "retention_pct": 52.83
+    },
+    {
+      "class": "aloo methi",
+      "original_count": 125,
+      "new_count": 125,
+      "archived_count": 0,
+      "retention_pct": 100.0
+    },
+    {
+      "class": "aloo mutter",
+      "original_count": 350,
+      "new_count": 282,
+      "archived_count": 68,
+      "retention_pct": 80.57
+    },
+    {
+      "class": "aloo paratha",
+      "original_count": 3155,
+      "new_count": 1056,
+      "archived_count": 2099,
+      "retention_pct": 33.47
+    },
+    {
+      "class": "amritsari kulcha",
+      "original_count": 267,
+      "new_count": 240,
+      "archived_count": 27,
+      "retention_pct": 89.89
+    },
+    {
+      "class": "anda curry",
+      "original_count": 3248,
+      "new_count": 1074,
+      "archived_count": 2174,
+      "retention_pct": 33.07
+    },
+    {
+      "class": "balushahi",
+      "original_count": 179,
+      "new_count": 179,
+      "archived_count": 0,
+      "retention_pct": 100.0
+    },
+    {
+      "class": "banana chips",
+      "original_count": 170,
+      "new_count": 170,
+      "archived_count": 0,
+      "retention_pct": 100.0
+    },
+    {
+      "class": "besan laddu",
+      "original_count": 483,
+      "new_count": 342,
+      "archived_count": 141,
+      "retention_pct": 70.81
+    },
+    {
+      "class": "bhindi masala",
+      "original_count": 598,
+      "new_count": 389,
+      "archived_count": 209,
+      "retention_pct": 65.05
+    },
+    {
+      "class": "biryani",
+      "original_count": 6639,
+      "new_count": 1650,
+      "archived_count": 4989,
+      "retention_pct": 24.85
+    },
+    {
+      "class": "boondi laddu",
+      "original_count": 226,
+      "new_count": 217,
+      "archived_count": 9,
+      "retention_pct": 96.02
+    },
+    {
+      "class": "chaas",
+      "original_count": 999,
+      "new_count": 530,
+      "archived_count": 469,
+      "retention_pct": 53.05
+    },
+    {
+      "class": "chana masala",
+      "original_count": 2873,
+      "new_count": 998,
+      "archived_count": 1875,
+      "retention_pct": 34.74
+    },
+    {
+      "class": "chapati",
+      "original_count": 2238,
+      "new_count": 859,
+      "archived_count": 1379,
+      "retention_pct": 38.38
+    },
+    {
+      "class": "chicken pizza",
+      "original_count": 3014,
+      "new_count": 1027,
+      "archived_count": 1987,
+      "retention_pct": 34.07
+    },
+    {
+      "class": "chicken wings",
+      "original_count": 2545,
+      "new_count": 928,
+      "archived_count": 1617,
+      "retention_pct": 36.46
+    },
+    {
+      "class": "chikki",
+      "original_count": 201,
+      "new_count": 201,
+      "archived_count": 0,
+      "retention_pct": 100.0
+    },
+    {
+      "class": "chivda",
+      "original_count": 277,
+      "new_count": 245,
+      "archived_count": 32,
+      "retention_pct": 88.45
+    },
+    {
+      "class": "chole bhature",
+      "original_count": 1181,
+      "new_count": 585,
+      "archived_count": 596,
+      "retention_pct": 49.53
+    },
+    {
+      "class": "dabeli",
+      "original_count": 928,
+      "new_count": 507,
+      "archived_count": 421,
+      "retention_pct": 54.63
+    },
+    {
+      "class": "dal khichdi",
+      "original_count": 1252,
+      "new_count": 606,
+      "archived_count": 646,
+      "retention_pct": 48.4
+    },
+    {
+      "class": "dhokla",
+      "original_count": 1211,
+      "new_count": 594,
+      "archived_count": 617,
+      "retention_pct": 49.05
+    },
+    {
+      "class": "falooda",
+      "original_count": 2483,
+      "new_count": 914,
+      "archived_count": 1569,
+      "retention_pct": 36.81
+    },
+    {
+      "class": "fish curry",
+      "original_count": 1553,
+      "new_count": 690,
+      "archived_count": 863,
+      "retention_pct": 44.43
+    },
+    {
+      "class": "gajar ka halwa",
+      "original_count": 357,
+      "new_count": 286,
+      "archived_count": 71,
+      "retention_pct": 80.11
+    },
+    {
+      "class": "garlic bread",
+      "original_count": 5667,
+      "new_count": 1500,
+      "archived_count": 4167,
+      "retention_pct": 26.47
+    },
+    {
+      "class": "garlic naan",
+      "original_count": 5730,
+      "new_count": 1510,
+      "archived_count": 4220,
+      "retention_pct": 26.35
+    },
+    {
+      "class": "ghevar",
+      "original_count": 294,
+      "new_count": 254,
+      "archived_count": 40,
+      "retention_pct": 86.39
+    },
+    {
+      "class": "grilled sandwich",
+      "original_count": 5705,
+      "new_count": 1506,
+      "archived_count": 4199,
+      "retention_pct": 26.4
+    },
+    {
+      "class": "gujhia",
+      "original_count": 269,
+      "new_count": 241,
+      "archived_count": 28,
+      "retention_pct": 89.59
+    },
+    {
+      "class": "gulab jamun",
+      "original_count": 2962,
+      "new_count": 1016,
+      "archived_count": 1946,
+      "retention_pct": 34.3
+    },
+    {
+      "class": "hara bhara kabab",
+      "original_count": 1621,
+      "new_count": 708,
+      "archived_count": 913,
+      "retention_pct": 43.68
+    },
+    {
+      "class": "idiyappam",
+      "original_count": 371,
+      "new_count": 292,
+      "archived_count": 79,
+      "retention_pct": 78.71
+    },
+    {
+      "class": "idli",
+      "original_count": 5835,
+      "new_count": 1527,
+      "archived_count": 4308,
+      "retention_pct": 26.17
+    },
+    {
+      "class": "jalebi",
+      "original_count": 962,
+      "new_count": 518,
+      "archived_count": 444,
+      "retention_pct": 53.85
+    },
+    {
+      "class": "kaju katli",
+      "original_count": 705,
+      "new_count": 430,
+      "archived_count": 275,
+      "retention_pct": 60.99
+    },
+    {
+      "class": "khakhra",
+      "original_count": 256,
+      "new_count": 234,
+      "archived_count": 22,
+      "retention_pct": 91.41
+    },
+    {
+      "class": "kheer",
+      "original_count": 670,
+      "new_count": 417,
+      "archived_count": 253,
+      "retention_pct": 62.24
+    },
+    {
+      "class": "kulfi",
+      "original_count": 3033,
+      "new_count": 1031,
+      "archived_count": 2002,
+      "retention_pct": 33.99
+    },
+    {
+      "class": "margherita pizza",
+      "original_count": 2460,
+      "new_count": 909,
+      "archived_count": 1551,
+      "retention_pct": 36.95
+    },
+    {
+      "class": "masala dosa",
+      "original_count": 5894,
+      "new_count": 1536,
+      "archived_count": 4358,
+      "retention_pct": 26.06
+    },
+    {
+      "class": "masala papad",
+      "original_count": 1069,
+      "new_count": 551,
+      "archived_count": 518,
+      "retention_pct": 51.54
+    },
+    {
+      "class": "medu vada",
+      "original_count": 541,
+      "new_count": 366,
+      "archived_count": 175,
+      "retention_pct": 67.65
+    },
+    {
+      "class": "misal pav",
+      "original_count": 543,
+      "new_count": 367,
+      "archived_count": 176,
+      "retention_pct": 67.59
+    },
+    {
+      "class": "modak",
+      "original_count": 226,
+      "new_count": 217,
+      "archived_count": 9,
+      "retention_pct": 96.02
+    },
+    {
+      "class": "moong dal halwa",
+      "original_count": 204,
+      "new_count": 204,
+      "archived_count": 0,
+      "retention_pct": 100.0
+    },
+    {
+      "class": "murukku",
+      "original_count": 228,
+      "new_count": 218,
+      "archived_count": 10,
+      "retention_pct": 95.61
+    },
+    {
+      "class": "mysore pak",
+      "original_count": 306,
+      "new_count": 260,
+      "archived_count": 46,
+      "retention_pct": 84.97
+    },
+    {
+      "class": "navratan korma",
+      "original_count": 369,
+      "new_count": 291,
+      "archived_count": 78,
+      "retention_pct": 78.86
+    },
+    {
+      "class": "neer dosa",
+      "original_count": 215,
+      "new_count": 211,
+      "archived_count": 4,
+      "retention_pct": 98.14
+    },
+    {
+      "class": "onion pakoda",
+      "original_count": 292,
+      "new_count": 253,
+      "archived_count": 39,
+      "retention_pct": 86.64
+    },
+    {
+      "class": "palak paneer",
+      "original_count": 3385,
+      "new_count": 1101,
+      "archived_count": 2284,
+      "retention_pct": 32.53
+    },
+    {
+      "class": "paneer masala",
+      "original_count": 7884,
+      "new_count": 1829,
+      "archived_count": 6055,
+      "retention_pct": 23.2
+    },
+    {
+      "class": "paneer pizza",
+      "original_count": 2491,
+      "new_count": 916,
+      "archived_count": 1575,
+      "retention_pct": 36.77
+    },
+    {
+      "class": "pani puri",
+      "original_count": 784,
+      "new_count": 458,
+      "archived_count": 326,
+      "retention_pct": 58.42
+    },
+    {
+      "class": "paniyaram",
+      "original_count": 267,
+      "new_count": 240,
+      "archived_count": 27,
+      "retention_pct": 89.89
+    },
+    {
+      "class": "papdi chaat",
+      "original_count": 999,
+      "new_count": 530,
+      "archived_count": 469,
+      "retention_pct": 53.05
+    },
+    {
+      "class": "patrode",
+      "original_count": 218,
+      "new_count": 212,
+      "archived_count": 6,
+      "retention_pct": 97.25
+    },
+    {
+      "class": "pav bhaji",
+      "original_count": 4424,
+      "new_count": 1293,
+      "archived_count": 3131,
+      "retention_pct": 29.23
+    },
+    {
+      "class": "pepperoni pizza",
+      "original_count": 321,
+      "new_count": 268,
+      "archived_count": 53,
+      "retention_pct": 83.49
+    },
+    {
+      "class": "phirni",
+      "original_count": 353,
+      "new_count": 284,
+      "archived_count": 69,
+      "retention_pct": 80.45
+    },
+    {
+      "class": "poha",
+      "original_count": 1483,
+      "new_count": 671,
+      "archived_count": 812,
+      "retention_pct": 45.25
+    },
+    {
+      "class": "pongal",
+      "original_count": 522,
+      "new_count": 359,
+      "archived_count": 163,
+      "retention_pct": 68.77
+    },
+    {
+      "class": "puri bhaji",
+      "original_count": 562,
+      "new_count": 375,
+      "archived_count": 187,
+      "retention_pct": 66.73
+    },
+    {
+      "class": "rajma chawal",
+      "original_count": 715,
+      "new_count": 433,
+      "archived_count": 282,
+      "retention_pct": 60.56
+    },
+    {
+      "class": "rasgulla",
+      "original_count": 1151,
+      "new_count": 576,
+      "archived_count": 575,
+      "retention_pct": 50.04
+    },
+    {
+      "class": "rava dosa",
+      "original_count": 868,
+      "new_count": 487,
+      "archived_count": 381,
+      "retention_pct": 56.11
+    },
+    {
+      "class": "sabudana khichdi",
+      "original_count": 391,
+      "new_count": 302,
+      "archived_count": 89,
+      "retention_pct": 77.24
+    },
+    {
+      "class": "sabudana vada",
+      "original_count": 457,
+      "new_count": 331,
+      "archived_count": 126,
+      "retention_pct": 72.43
+    },
+    {
+      "class": "samosa",
+      "original_count": 4054,
+      "new_count": 1227,
+      "archived_count": 2827,
+      "retention_pct": 30.27
+    },
+    {
+      "class": "seekh kebab",
+      "original_count": 4326,
+      "new_count": 1276,
+      "archived_count": 3050,
+      "retention_pct": 29.5
+    },
+    {
+      "class": "set dosa",
+      "original_count": 588,
+      "new_count": 385,
+      "archived_count": 203,
+      "retention_pct": 65.48
+    },
+    {
+      "class": "sev puri",
+      "original_count": 594,
+      "new_count": 388,
+      "archived_count": 206,
+      "retention_pct": 65.32
+    },
+    {
+      "class": "solkadhi",
+      "original_count": 243,
+      "new_count": 227,
+      "archived_count": 16,
+      "retention_pct": 93.42
+    },
+    {
+      "class": "steamed momo",
+      "original_count": 1790,
+      "new_count": 751,
+      "archived_count": 1039,
+      "retention_pct": 41.96
+    },
+    {
+      "class": "thali",
+      "original_count": 1632,
+      "new_count": 711,
+      "archived_count": 921,
+      "retention_pct": 43.57
+    },
+    {
+      "class": "thukpa",
+      "original_count": 607,
+      "new_count": 393,
+      "archived_count": 214,
+      "retention_pct": 64.74
+    },
+    {
+      "class": "uttapam",
+      "original_count": 4007,
+      "new_count": 1219,
+      "archived_count": 2788,
+      "retention_pct": 30.42
+    },
+    {
+      "class": "vada pav",
+      "original_count": 2716,
+      "new_count": 965,
+      "archived_count": 1751,
+      "retention_pct": 35.53
+    }
+  ]
+}

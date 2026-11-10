@@ -1,0 +1,24 @@
+{
+  "title": "NutriPlate-Food35: 35-Class Robust Indian Culinary Dataset",
+  "id": "nutriplate/nutriplate-food35",
+  "licenses": [
+    {
+      "name": "CC-BY-NC-4.0"
+    }
+  ],
+  "keywords": [
+    "food",
+    "india",
+    "computer vision",
+    "dietary intelligence",
+    "image classification",
+    "yolov8"
+  ],
+  "collaborators": [
+    "adhyayan.goyal23@pccoepune.org",
+    "aditya.chavan23@pccoepune.org",
+    "likhit.chaudhary23@pccoepune.org",
+    "vaishnavi.bighot23@pccoepune.org",
+    "kannan.rajeswari@pccoepune.org"
+  ]
+}

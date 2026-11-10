@@ -1,0 +1,68 @@
+{
+  "dataset_name": "NutriPlate-Food35",
+  "dataset_acronym": "NP-Food35",
+  "full_title": "NutriPlate-Food35: A Benchmark 35-Class Robust Indian Culinary Vision Dataset with Synthetic Domain Augmentation",
+  "version": "1.2.0",
+  "date_created": "2026-11-10",
+  "institution": "Pimpri Chinchwad College of Engineering (PCCOE), Pune, India",
+  "department": "Department of Computer Engineering",
+  "jurisdiction": "India (Indian Copyright Act, 1957, Section 2(o))",
+  "nature_of_work": "Original Literary Work (Electronic Database & Compilation with Algorithmic Synthetic Domain Augmentation and Watermark Inpainting Purification)",
+  "total_records": 7351,
+  "number_of_classes": 35,
+  "purification_status": "100% Raw Food Imagery - Verified Zero-Watermark Dataset",
+  "equal_contribution_statement": "Adhyayan Goyal, Aditya Chavan, Likhit Chaudhary, and Vaishnavi Bighot contributed equally to this work.",
+  "data_split": {
+    "training_samples": 6959,
+    "validation_samples": 392,
+    "ratio": "94.7% Train / 5.3% Val"
+  },
+  "authors": [
+    {
+      "name": "Adhyayan Goyal",
+      "email": "adhyayan.goyal23@pccoepune.org",
+      "role": "Co-Author & Researcher (Equal Contribution)",
+      "affiliation": "Pimpri Chinchwad College of Engineering (PCCOE), Pune"
+    },
+    {
+      "name": "Aditya Chavan",
+      "email": "aditya.chavan23@pccoepune.org",
+      "role": "Co-Author & Researcher (Equal Contribution)",
+      "affiliation": "Pimpri Chinchwad College of Engineering (PCCOE), Pune"
+    },
+    {
+      "name": "Likhit Chaudhary",
+      "email": "likhit.chaudhary23@pccoepune.org",
+      "role": "Co-Author & Researcher (Equal Contribution)",
+      "affiliation": "Pimpri Chinchwad College of Engineering (PCCOE), Pune"
+    },
+    {
+      "name": "Vaishnavi Bighot",
+      "email": "vaishnavi.bighot23@pccoepune.org",
+      "role": "Co-Author & Researcher (Equal Contribution)",
+      "affiliation": "Pimpri Chinchwad College of Engineering (PCCOE), Pune"
+    },
+    {
+      "name": "Dr. K. Rajeswari",
+      "email": "kannan.rajeswari@pccoepune.org",
+      "role": "Faculty Mentor & Research Guide",
+      "affiliation": "Pimpri Chinchwad College of Engineering (PCCOE), Pune"
+    }
+  ],
+  "taxonomic_classes": [
+    "aloo gobi", "aloo mutter", "aloo paratha", "bhindi masala", "biryani",
+    "butter chicken", "chana masala", "chapati", "chole bhature", "dal",
+    "dal makhani", "dhokla", "gajar ka halwa", "garlic naan", "gulab jamun",
+    "idli", "jalebi", "jeera rice", "kheer", "masala dosa",
+    "medu vada", "onion salad", "palak paneer", "paneer masala", "paneer tikka",
+    "pani puri", "pav bhaji", "poha", "raita", "rajma chawal",
+    "rasgulla", "samosa", "steamed rice", "thali", "vada pav"
+  ],
+  "intellectual_contributions": [
+    "Joint taxonomy covering 35 essential Indian dietary classes formulated by the student research team at PCCOE Pune.",
+    "First benchmark dataset systematically resolving Indian thali staple blind spots: Yellow Dal, Dal Makhani, Jeera Rice, Steamed Rice, and Onion Salad.",
+    "Comprehensive automated purification pipeline removing 290 stock-watermarked items, producing 7,351 pristine raw culinary vision records.",
+    "Algorithmic synthetic domain randomization: Gaussian lens defocus blur (sigma 1.8-3.5), directional motion blur (camera shake simulation), and low-light illuminance reduction (factors 0.55-0.78)."
+  ],
+  "license": "Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) with Commercial Rights Reserved Jointly by Authors"
+}
